@@ -15,7 +15,7 @@ pipeline {
                  script{
                         dir("terraform")
                         {
-                            git branch: 'main', url: 'https://github.com/khingfiles/Terraform-Jenkins-Destroy.git'
+                            git  branch: 'main', url: https://github.com/khingfiles/Terraform-Jenkins.git'
                         }
                     }
                 }
@@ -24,8 +24,8 @@ pipeline {
         stage('Plan') {
             steps {
                 sh 'pwd;cd terraform/ ; terraform init'
-                sh "pwd;cd terraform/ ; terraform destroy -out tfdestroy"
-                sh 'pwd;cd terraform/ ; terraform show -no-color tfdestroy > tfdestroy.txt'
+                sh "pwd;cd terraform/ ; terraform plan -out tfplan"
+                sh 'pwd;cd terraform/ ; terraform show -no-color tfplan > tfplan.txt'
             }
         }
         stage('Approval') {
