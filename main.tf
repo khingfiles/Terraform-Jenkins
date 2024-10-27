@@ -1,11 +1,11 @@
 provider "aws" {
-    region = "us-east-1"  
+    region = "ap-northeast-1"  
 }
 
-resource "aws_instance" "foo" {
-  ami           = "ami-05fa00d4c63e32376" # us-west-2
+resource "aws_instance" "TestServer" {
+  ami           = "ami-03f584e50b2d32776" # ap-northeast-1
   instance_type = "t2.micro"
   tags = {
-      Name = "TF-Instance"
+      Name = "TF-KhingVM-01"
   }
 }
